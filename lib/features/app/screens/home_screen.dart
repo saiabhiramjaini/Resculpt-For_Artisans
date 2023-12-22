@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String uname = '';
 
   onTheLoad() async {
-    itemStream = await DatabaseFunctions().getAllExceptZero();
+    itemStream = await DatabaseFunctions().getProducts();
     retrieveUname();
   }
 

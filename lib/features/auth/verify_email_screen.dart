@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:round2/features/app/widgets/bottom_nav.dart';
 
 class VerifyEmail extends StatefulWidget {
-  const VerifyEmail({super.key});
+  const VerifyEmail({Key? key}) : super(key: key);
 
   @override
   State<VerifyEmail> createState() => _VerifyEmailState();
@@ -28,7 +28,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
     if (isVerified) {
       timer?.cancel();
       // Navigate to the '/account' route after email verification
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => const BottomNav(),
@@ -108,11 +108,16 @@ class _VerifyEmailState extends State<VerifyEmail> {
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.black,
+                        fixedSize: const Size(150, 50),
                       ),
-                      child: const Text(
-                        "Resend Link",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                      child: const Row(
+                        children: [
+                          Text(
+                            "Resend Link",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                        ],
                       ),
                     ),
                   ],
